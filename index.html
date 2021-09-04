@@ -53,6 +53,9 @@ int scene_count = 0;
 boolean right = true;
 boolean presure = true;
 
+String Question = "";
+
+String background_Question[] = {};
 String background_Question_Time[] = {"0"};
 String background_Question_Answer[] = {};
 String background_Question_Answer_Time[] = {};
@@ -67,6 +70,8 @@ void setup() {
   background(255);
   x = int(random(10, 100));
   y = int(random(10, 100));
+  Question = str(x)+"+"+str(y);
+  background_Question = append(background_Question, Question);
   PFont font = createFont("utf-8", 50);
   textFont(font);
 }
@@ -129,7 +134,8 @@ void draw() {
       document.getElementById('Result_area').innerHTML = "Result";
       document.getElementById('Log1_area').innerHTML = "answer :"+ "NL" + "-" + "G" + "-" + "1" + "-" + first_score;
       document.getElementById('Log2_area').innerHTML = "answer :"+ "NL" + "-" + "G" + "-" + "2" + "-" + second_score;
-      document.getElementById('Question_area').innerHTML = "問題表示時刻"+background_Question_Time;
+      document.getElementById('Question1_area').innerHTML = "問題表示時刻"+background_Question_Time;
+      document.getElementById('Question2_area').innerHTML = "表示問題"+background_Question;
       document.getElementById('AnswerTime_area').innerHTML = "回答時間"+background_Question_Answer_Time;
       document.getElementById('Answer_area').innerHTML = "回答"+background_Question_Answer ;
       noLoop();
@@ -313,6 +319,8 @@ void keyReleased() {
         } else if (presure == false) {
           presure = true;
         }
+        Question = str(x)+"+"+str(y);
+        background_Question = append(background_Question, Question);
         x = int(random(10, 100));
         y = int(random(10, 100));
         background_Question_Answer_Time = append(background_Question_Answer_Time, "/");
@@ -347,9 +355,11 @@ void mouseReleased() {
   <div id="Result_area"></div>
   <div id="Log1_area"></div>
   <div id="Log2_area"></div>
+  <div id="Question1_area"></div>
+  <div id="Question2_area"></div>
   <div id="Answer_area"></div>
   <div id="AnswerTime_area"></div>
-  <div id="Question_area"></div>
+  
 </body>
 
 </html>
