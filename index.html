@@ -53,7 +53,7 @@ int scene_count = 0;
 boolean right = true;
 boolean presure = true;
 
-int background_Question_Time[] = {0};
+String background_Question_Time[] = {"0"};
 String background_Question_Answer[] = {};
 String background_Question_Answer_Time[] = {};
 
@@ -275,7 +275,7 @@ void keyReleased() {
         background_Question_Answer = append(background_Question_Answer, answer);
         num += 1;
         answer = "";
-        background_Question_Time = append(background_Question_Time,int(basic_time));
+        background_Question_Time = append(background_Question_Time,Str(int(basic_time)));
         x = int(random(10, 100));
         y = int(random(10, 100));
         right = true;
@@ -317,7 +317,8 @@ void keyReleased() {
         y = int(random(10, 100));
         background_Question_Answer_Time = append(background_Question_Answer_Time, "/");
         background_Question_Answer = append(background_Question_Answer, "/");
-        background_Question_Time = append(background_Question_Time,0);
+        background_Question_Time = append(background_Question_Time,"/");
+        background_Question_Time = append(background_Question_Time,"0");
       }
     }
   }
